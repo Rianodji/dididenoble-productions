@@ -6,28 +6,31 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="agence" class="py-32 bg-gray-50 overflow-hidden">
+    <section id="agence" class="py-20 md:py-32 bg-gray-50 overflow-hidden">
       <div class="max-w-7xl mx-auto px-6">
         
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-12 text-gray-900">
+        <!-- HEADER ADAPTATIF -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-8 text-gray-900">
           <div class="max-w-2xl">
-            <h2 class="text-[#C5A059] font-bold uppercase tracking-[0.4em] text-[10px] mb-6">Expertise Dididenoble</h2>
-            <h3 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none">L'Excellence <br> sans compromis.</h3>
+            <h2 class="text-[#C5A059] font-bold uppercase tracking-[0.4em] text-[8px] md:text-[10px] mb-4 md:mb-6">Expertise Dididenoble</h2>
+            <h3 class="text-4xl sm:text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9]">L'Excellence <br> sans compromis.</h3>
           </div>
-          <div class="flex flex-col items-end">
-            <p class="text-gray-400 text-sm max-w-xs pb-4 font-bold uppercase tracking-widest leading-loose text-right">
+          <div class="flex flex-col items-start md:items-end w-full md:w-auto">
+            <p class="text-gray-400 text-[10px] md:text-sm max-w-xs pb-4 font-bold uppercase tracking-widest leading-loose text-left md:text-right">
               De la conception à la distribution mondiale.
             </p>
             <div class="flex gap-2 text-[#C5A059] items-center">
-              <span class="text-[9px] font-black uppercase tracking-widest">Scroll</span>
+              <span class="text-[9px] font-black uppercase tracking-widest">Faites glisser</span>
               <div class="w-12 h-px bg-[#C5A059]"></div>
             </div>
           </div>
         </div>
 
-        <div class="flex overflow-x-auto gap-6 pb-12 snap-x snap-mandatory scrollbar-hide scroll-smooth">
+        <!-- CARROUSEL OPTIMISÉ POUR MOBILE (SNAP SCROLL) -->
+        <div class="flex overflow-x-auto gap-4 md:gap-6 pb-12 snap-x snap-mandatory scrollbar-hide scroll-smooth">
           @for (s of services; track s.id) {
-            <div class="min-w-[85vw] md:min-w-[400px] h-[600px] relative overflow-hidden group cursor-pointer bg-black snap-start">
+            <!-- Largeur adaptée : 85% de l'écran sur mobile pour voir la carte suivante -->
+            <div class="min-w-[85vw] sm:min-w-[350px] md:min-w-[400px] h-[500px] md:h-[600px] relative overflow-hidden group cursor-pointer bg-black snap-start rounded-sm">
               
               @if (s.video) {
                 <video 
@@ -46,29 +49,33 @@ import { CommonModule } from '@angular/common';
                 >
               }
 
-              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
+              <!-- Gradient toujours visible pour la lisibilité sur mobile -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
 
-              <div class="absolute inset-0 p-10 flex flex-col justify-end z-10">
+              <div class="absolute inset-0 p-6 md:p-10 flex flex-col justify-end z-10">
                 
                 @if (s.cat === 'DISTRIBUTION') {
-                    <div class="absolute top-10 right-10 flex items-center justify-center">
+                    <div class="absolute top-6 right-6 md:top-10 md:right-10 flex items-center justify-center">
                         <div class="w-2 h-2 bg-[#C5A059] rounded-full animate-ping absolute"></div>
                         <div class="w-2 h-2 bg-[#C5A059] rounded-full"></div>
                     </div>
                 }
 
-                <span class="text-[#C5A059] font-black text-[10px] mb-4 block tracking-[0.4em]">
+                <span class="text-[#C5A059] font-black text-[9px] md:text-[10px] mb-2 md:mb-4 block tracking-[0.4em]">
                   {{ s.id }} / {{ s.cat }}
                 </span>
-                <h4 class="text-4xl font-black uppercase mb-4 text-white leading-none">
+                
+                <!-- Titre plus petit sur mobile pour éviter les coupures -->
+                <h4 class="text-2xl md:text-4xl font-black uppercase mb-3 md:mb-4 text-white leading-tight">
                   {{ s.title }}
                 </h4>
                 
-                <p class="text-gray-300 text-sm font-light leading-relaxed max-h-0 group-hover:max-h-32 opacity-0 group-hover:opacity-100 transition-all duration-700 overflow-hidden">
+                <!-- Description : Visible par défaut sur mobile (opacity-100) pour éviter le bug du hover -->
+                <p class="text-gray-300 text-xs md:text-sm font-light leading-relaxed max-h-24 md:max-h-0 md:group-hover:max-h-32 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-700 overflow-hidden">
                   {{ s.desc }}
                 </p>
 
-                <div class="w-10 h-1 bg-[#C5A059] mt-6 group-hover:w-full transition-all duration-700"></div>
+                <div class="w-10 h-1 bg-[#C5A059] mt-6 w-full md:w-10 md:group-hover:w-full transition-all duration-700"></div>
               </div>
             </div>
           }
