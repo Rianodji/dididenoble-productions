@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:render": "npm install --legacy-peer-deps && ng build",
+    "build:render": "ng build",
     "serve:ssr:dididenoble-productions": "node dist/dididenoble-productions/server/server.mjs"
   },
   "private": true,
@@ -38,5 +38,10 @@
     "prettier": "^3.8.1",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"
+  },
+  "overrides": {
+    "@tailwindcss/vite": {
+      "vite": "$vite"
+    }
   }
 }
