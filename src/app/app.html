@@ -1,1 +1,78 @@
-<h1>Bienvenue chez Dididenoble Productions</h1>
+<div class="min-h-screen bg-white font-sans text-gray-900 scroll-smooth selection:bg-[#C5A059] selection:text-white">
+  
+  <app-navbar 
+    [menuOpen]="isMenuOpen()" 
+    [isScrolled]="isScrolled()" 
+    (toggleMenu)="toggleMenu()"
+  ></app-navbar>
+
+  <app-hero></app-hero>
+  <app-services></app-services>
+  <app-equipe></app-equipe>
+  <app-project></app-project>
+  
+  <!-- SECTION NEWS -->
+<section id="actualites" class="py-32 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <div class="flex justify-between items-end mb-20 border-b border-gray-200 pb-12 text-gray-900">
+      <div>
+        <h2 class="text-[#C5A059] font-bold uppercase tracking-[0.4em] text-[10px] mb-4">Newsroom</h2>
+        <h3 class="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none">Journal de Bord</h3>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+      
+      <!-- Article 1 : Médiation Culturelle (Image Cover) -->
+      <article class="group cursor-pointer space-y-8">
+        <div class="aspect-video bg-gray-200 overflow-hidden relative border border-gray-100 shadow-sm">
+          <!-- Image dynamique -->
+          <img 
+            src="/ndomich-cover.jpeg" 
+            alt="BEWA Cover" 
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          >
+          <!-- Overlay sombre pour la lisibilité du badge -->
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all duration-700"></div>
+          <div class="absolute top-6 left-6 bg-white px-4 py-1 text-[9px] font-black uppercase tracking-widest text-gray-900 z-10 shadow-sm">
+            Impact Social
+          </div>
+        </div>
+        <div class="space-y-4">
+          <span class="text-[#C5A059] text-[10px] font-black uppercase tracking-widest">15 Mai 2026</span>
+          <h4 class="text-3xl font-black uppercase leading-tight group-hover:text-[#C5A059] transition-colors text-gray-900">
+            Médiation culturelle : Le Rap comme outil de paix.
+          </h4>
+        </div>
+      </article>
+
+      <!-- Article 2 : Studio (Image Artiste) -->
+      <article class="group cursor-pointer space-y-8">
+        <div class="aspect-video bg-gray-200 overflow-hidden relative border border-gray-100 shadow-sm">
+          <!-- Image dynamique -->
+          <img 
+            src="/ndomich-portrait.jpeg" 
+            alt="Ndomich KGB au studio" 
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          >
+          <!-- Overlay sombre -->
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-all duration-700"></div>
+          <div class="absolute top-6 left-6 bg-white px-4 py-1 text-[9px] font-black uppercase tracking-widest text-gray-900 z-10 shadow-sm">
+            Studio
+          </div>
+        </div>
+        <div class="space-y-4">
+          <span class="text-[#C5A059] text-[10px] font-black uppercase tracking-widest">10 Mai 2026</span>
+          <h4 class="text-3xl font-black uppercase leading-tight group-hover:text-[#C5A059] transition-colors text-gray-900">
+            Post-production lancée pour l'EP de Ndomich KGB.
+          </h4>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+  <app-footer></app-footer>
+</div>
